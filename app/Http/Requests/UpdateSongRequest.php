@@ -25,7 +25,8 @@ class UpdateSongRequest extends FormRequest
     {
         return [
             'title' => 'required:title|max:100',
-            'cover' => 'nullable|image|max:500',
+            'cover' => 'nullable|image|max:300',
+            'category_id' => ['nullable', 'exists:categories,id'],
             'album' => 'nullable|max:400',
             'artist' => 'nullable'
         ];

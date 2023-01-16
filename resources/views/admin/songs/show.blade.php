@@ -10,6 +10,11 @@
     è prende il nome di
     {{$song->album}}
 
+    <div class="category">
+        <strong>Category:</strong>
+        {{ $song->category ? $song->category->name : 'Uncategorized'}}
+    </div>
+
 
 </div>
 @endsection

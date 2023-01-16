@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSongRequest;
 use App\Http\Requests\UpdateSongRequest;
+use App\Models\Category;
 use App\Models\Song;
 use Illuminate\Support\Facades\Storage;
 use illuminate\Support\Str;
@@ -31,7 +32,9 @@ class SongController extends Controller
      */
     public function create()
     {
-        return view('admin.songs.create');
+        $categories = Category::all(); //👈 get all categories
+
+        return view('admin.songs.create', compact('categories'));
     }
 
     /**
@@ -87,7 +90,9 @@ class SongController extends Controller
      */
     public function edit(Song $song)
     {
-        return view('admin.songs.edit', compact('song'));
+        $categories = Category::all(); //👈 get all categories
+
+        return view('admin.songs.edit', compact('song', 'categories'));
     }
 
     /**
